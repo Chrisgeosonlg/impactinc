@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page not found — iMpact Inc</title>
+  <meta name="theme-color" content="#20283F" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    .nf {
+      min-height: 100svh; background: var(--navy); color: var(--paper);
+      display: flex; align-items: center; justify-content: center; text-align: center;
+      padding: var(--gutter); position: relative; overflow: hidden;
+    }
+    .nf__inner { position: relative; z-index: 2; max-width: 40ch; }
+    .nf__code { font-size: clamp(4rem, 14vw, 9rem); font-weight: 700; letter-spacing: -0.04em; line-height: 1; color: var(--teal); }
+    .nf h1 { font-size: var(--fs-h3); margin: 1rem 0 0.8rem; color: var(--paper); }
+    .nf p { color: rgba(251,248,241,0.74); font-weight: 300; margin-bottom: 2rem; }
+    .nf__halo {
+      position: absolute; width: 60vw; height: 60vw; border-radius: 50%;
+      background: radial-gradient(circle, rgba(60,157,159,0.22), rgba(60,157,159,0) 70%);
+      top: -10vw; right: -10vw; pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+  <main class="nf">
+    <span class="nf__halo" aria-hidden="true"></span>
+    <div class="nf__inner">
+      <p class="nf__code">404</p>
+      <h1>This page took a different path.</h1>
+      <p>The page you're after has moved or never existed. Let's get you back to solid ground.</p>
+      <a class="btn btn--light" href="/">Back to home <span class="arrow" aria-hidden="true">→</span></a>
+    </div>
+  </main>
+</body>
+</html>
