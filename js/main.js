@@ -85,4 +85,78 @@
       });
     });
   });
+
+  /* contact form */
+  var form = document.getElementById("contactForm");
+  if (form) {
+    var statusEl = document.getElementById("formStatus");
+    var emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    function mark(input, bad) {
+      input.closest(".field").classList.toggle("field--error", bad);
+      input.setAttribute("aria-invalid", bad ? "true" : "false");
+    }
+    function showStatus(type, msg) {
+      statusEl.className = "form__status show " + type;
+      statusEl.textContent = msg;
+    }
+    // clear a field's error as the user fixes it
+    form.addEventListener("input", function (e) {
+      var field = e.target.closest(".field--error");
+      if (field) { e.target.closest(".field").classList.remove("field--error"); e.target.setAttribute("aria-invalid", "false"); }
+    });
+
+    var checks = [
+      { name: "name", ok: function (v) { return v.trim().length > 0; } },
+      { name: "email", ok: function (v) { return emailRe.test(v.trim()); } },
+      { name: "message", ok: function (v) { return v.trim().length > 1; } }
+    ];
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      if (form.elements["botcheck"] && form.elements["botcheck"].value) return; // spam bot
+      var valid = true, firstBad = null;
+      checks.forEach(function (c) {
+        var el = form.elements[c.name];
+        var good = c.ok(el.value);
+        mark(el, !good);
+        if (!good && !firstBad) firstBad = el;
+        if (!good) valid = false;
+      });
+      if (!valid) { showStatus("err", "Please fix the highlighted fields."); if (firstBad) firstBad.focus(); return; }
+      send();
+    });
+
+    function send() {
+      var btn = form.querySelector('button[type="submit"]');
+      var original = btn.innerHTML;
+      var endpoint = form.getAttribute("action");
+      var keyEl = form.elements["access_key"];
+      var configured = endpoint && (!keyEl || keyEl.value.indexOf("YOUR-ACCESS-KEY") === -1);
+
+      btn.setAttribute("aria-busy", "true");
+      btn.textContent = "Sending…";
+
+      // Demo mode — no endpoint/key set yet
+      if (!configured) {
+        setTimeout(function () {
+          btn.innerHTML = original; btn.removeAttribute("aria-busy"); form.reset();
+          showStatus("ok", "Looks good! Add your form endpoint (see README) and this message will be delivered to your inbox.");
+        }, 700);
+        return;
+      }
+
+      fetch(endpoint, { method: "POST", headers: { Accept: "application/json" }, body: new FormData(form) })
+        .then(function (r) { return r.json().catch(function () { return {}; }).then(function (d) { return { ok: r.ok, d: d }; }); })
+        .then(function (res) {
+          btn.innerHTML = original; btn.removeAttribute("aria-busy");
+          if (res.ok) { form.reset(); showStatus("ok", "Thanks for reaching out — we'll reply within one working day."); }
+          else { showStatus("err", (res.d && res.d.message) || "Something went wrong. Please email hello@impactinc.co."); }
+        })
+        .catch(function () {
+          btn.innerHTML = original; btn.removeAttribute("aria-busy");
+          showStatus("err", "Network error — please email hello@impactinc.co directly.");
+        });
+    }
+  }
 })();

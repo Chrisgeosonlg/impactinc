@@ -58,7 +58,32 @@ impact-inc-site/
 
 ---
 
-## Brand tokens (top of `css/styles.css`)
+## Contact form
+
+The contact section (`#contact`) has a real, validated form. Because the site is
+static, it sends through a **form-backend service** — no server of your own
+needed. Out of the box it runs in safe **demo mode** (validates + shows success
+but doesn't deliver) until you add an endpoint.
+
+**To make it live (recommended: Web3Forms — free, no account):**
+1. Go to web3forms.com, enter your email, copy the access key.
+2. In `index.html`, find the form and replace `YOUR-ACCESS-KEY-HERE`.
+
+That's it — submissions land in your inbox. The form also:
+- validates name/email/message inline with accessible error messaging,
+- blocks bots with a hidden honeypot field,
+- shows a live success/error status and a "Sending…" button state.
+
+**Prefer Formspree?** Replace the form's `action` with your Formspree URL
+(`https://formspree.io/f/xxxx`) and delete the `access_key` line.
+
+**On Netlify?** Add `data-netlify="true"` and a `name` to the `<form>` and Netlify
+captures submissions automatically (then trim the fetch handler in `main.js`).
+
+Update the displayed email, phone and location in the contact section and footer
+to your real details, and point the "privacy notice" link at your policy.
+
+
 
 | Token        | Hex       |
 |--------------|-----------|
