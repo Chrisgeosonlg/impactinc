@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Business Process Outsourcing (BPO) — iMpact Inc</title>
+  <meta name="description" content="Tailored Business Process Outsourcing from iMpact Inc — HR outsourcing, back-office operations, content & creative services, and digital marketing & SEO." />
+  <meta name="theme-color" content="#20283F" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    .page-hero{background:var(--navy);color:var(--paper);padding:9rem var(--gutter) 4rem;position:relative;overflow:hidden}
+    .page-hero__halo{position:absolute;width:60vw;height:60vw;right:-16vw;top:-20vw;border-radius:50%;
+      background:radial-gradient(circle at 30% 30%,rgba(60,157,159,.28),rgba(60,157,159,0) 70%);pointer-events:none}
+    .page-hero__inner{width:var(--shell);margin-inline:auto;position:relative;z-index:2;max-width:62ch}
+    .page-hero h1{font-size:clamp(2.3rem,1rem+5vw,4rem);margin-top:1rem;letter-spacing:-.02em}
+    .page-hero p{color:rgba(251,248,241,.78);margin-top:1.2rem;font-weight:300;font-size:var(--fs-lead)}
+    .page-hero__actions{margin-top:2.2rem;display:flex;flex-wrap:wrap;gap:1rem}
+
+    .bpo{background:var(--bg)}
+    .bpo__grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.2rem,2.5vw,2rem)}
+    .bpo-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+      padding:clamp(1.6rem,3vw,2.4rem);transition:transform .4s var(--ease),box-shadow .4s var(--ease)}
+    .bpo-card:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+    .bpo-card__no{font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;color:var(--teal-deep);font-weight:600}
+    .bpo-card h3{font-size:var(--fs-h3);margin:.7rem 0 .7rem}
+    .bpo-card>p{color:var(--ink-soft);margin-bottom:1.3rem}
+    .bpo-list{display:grid;grid-template-columns:1fr 1fr;gap:.55rem 1.2rem}
+    .bpo-list li{display:flex;gap:.6rem;align-items:flex-start;font-size:.92rem;color:var(--ink-soft)}
+    .bpo-list li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--teal);margin-top:.55em;flex:none}
+
+    .process-plan{background:var(--navy);color:var(--paper)}
+    .process-plan .section-head h2{color:var(--paper)}
+    .process-plan .section-head p{color:rgba(251,248,241,.72)}
+    .plan{display:grid;grid-template-columns:repeat(5,1fr);gap:clamp(1rem,2vw,1.6rem)}
+    .plan__step{position:relative;padding-top:1rem}
+    .plan__num{width:54px;height:54px;border-radius:50%;border:1.5px solid var(--teal);color:var(--teal);
+      display:grid;place-items:center;font-weight:700;font-size:1.15rem;margin-bottom:1.1rem;background:var(--navy);position:relative;z-index:2}
+    .plan__step h3{font-size:1.05rem;color:var(--paper);margin-bottom:.5rem;letter-spacing:-.01em}
+    .plan__step p{font-size:.9rem;color:rgba(251,248,241,.7);font-weight:300}
+    .plan__step:not(:last-child)::after{content:"";position:absolute;top:27px;left:54px;right:-.8rem;height:1.5px;z-index:1;
+      background:repeating-linear-gradient(90deg,rgba(60,157,159,.5) 0 8px,transparent 8px 16px)}
+
+    @media (max-width:1000px){
+      .bpo__grid{grid-template-columns:1fr}
+      .plan{grid-template-columns:repeat(2,1fr);gap:2rem 1.4rem}
+      .plan__step:not(:last-child)::after{display:none}
+    }
+    @media (max-width:560px){
+      .bpo-list{grid-template-columns:1fr}
+      .plan{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body id="top">
+
+  <!-- ===== NAV ===== -->
+  <header class="nav nav--scrolled" id="nav" data-open="false">
+    <a class="logo" href="index.html" aria-label="iMpact Inc home">
+      <span class="logo__mark" aria-hidden="true"><svg viewBox="0 0 120 120"><g fill="currentColor"><circle cx="26" cy="27" r="17.5"/><rect x="15.5" y="53" width="21" height="53" rx="10.5"/><rect x="80" y="13" width="22" height="93" rx="11"/><path d="M27 62 C 43 92, 65 84, 91 54" fill="none" stroke="currentColor" stroke-width="22" stroke-linecap="round"/></g></svg></span>
+      <span class="logo__type">iMpact<span class="inc">Inc</span></span>
+    </a>
+    <nav class="nav__links" id="navLinks" aria-label="Primary">
+      <a class="nav__link" href="index.html#about">About</a>
+      <a class="nav__link" href="index.html#services">Services</a>
+      <a class="nav__link" href="bpo.html" aria-current="page">BPO</a>
+      <a class="nav__link" href="index.html#process">Process</a>
+      <a class="nav__link" href="index.html#insights">Insights</a>
+      <a class="btn btn--accent" href="index.html#contact">Start a conversation <span class="arrow" aria-hidden="true">&rarr;</span></a>
+    </nav>
+    <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
+  </header>
+
+  <main>
+  <!-- ===== HERO ===== -->
+  <section class="page-hero">
+    <span class="page-hero__halo" aria-hidden="true"></span>
+    <div class="page-hero__inner">
+      <p class="eyebrow eyebrow--light">Business Process Outsourcing</p>
+      <h1>BPO built around your business.</h1>
+      <p>We provide tailored Business Process Outsourcing that optimises operations, lifts efficiency and reduces cost. Our teams handle essential functions with precision and care &mdash; so you can focus on your core objectives and grow with confidence.</p>
+      <div class="page-hero__actions">
+        <a class="btn btn--accent btn--lg" href="index.html#contact">Work with us <span class="arrow" aria-hidden="true">&rarr;</span></a>
+        <a class="btn btn--light btn--lg" href="#services">Explore what we handle</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SERVICES ===== -->
+  <section class="bpo" id="services" aria-labelledby="bpo-h">
+    <div class="shell">
+      <div class="section-head center">
+        <p class="eyebrow eyebrow--center" data-reveal>What we handle</p>
+        <h2 id="bpo-h" data-reveal data-delay="1">Functions we run, so you don't have to</h2>
+      </div>
+      <div class="bpo__grid">
+
+        <article class="bpo-card" id="hro" data-reveal>
+          <p class="bpo-card__no">01 &mdash; HRO</p>
+          <h3>Human Resource Outsourcing</h3>
+          <p>We manage the day-to-day of your people function &mdash; payroll, recruitment, compliance and employee relations &mdash; so your team is well supported and your admin burden drops.</p>
+          <ul class="bpo-list">
+            <li>Payroll &amp; compensation management</li>
+            <li>Recruitment &amp; talent acquisition</li>
+            <li>Employee relations &amp; compliance</li>
+            <li>HR policy development</li>
+            <li>Performance management</li>
+            <li>HR technology &amp; transformation</li>
+            <li>Benefits &amp; wellness programmes</li>
+            <li>HR compliance &amp; risk management</li>
+          </ul>
+        </article>
+
+        <article class="bpo-card" id="back-office" data-reveal data-delay="1">
+          <p class="bpo-card__no">02 &mdash; Back office</p>
+          <h3>Back Office Operations</h3>
+          <p>We take on the essential administrative work behind the scenes &mdash; data, documents and transactions &mdash; to streamline your operations and lift productivity.</p>
+          <ul class="bpo-list">
+            <li>Data entry &amp; database management</li>
+            <li>Document processing</li>
+            <li>Transaction &amp; financial admin</li>
+            <li>Customer &amp; admin support</li>
+            <li>Compliance &amp; regulatory docs</li>
+            <li>IT &amp; technical back-office</li>
+            <li>HR &amp; payroll back-office</li>
+            <li>Reporting &amp; analytics</li>
+          </ul>
+        </article>
+
+        <article class="bpo-card" id="content" data-reveal>
+          <p class="bpo-card__no">03 &mdash; Creative</p>
+          <h3>Content &amp; Creative Services</h3>
+          <p>From copy to campaigns, we build the content and creative that raise your profile &mdash; branding, marketing materials and social media that engage your audience.</p>
+          <ul class="bpo-list">
+            <li>Content creation &amp; copywriting</li>
+            <li>Social media content</li>
+            <li>Branding &amp; visual identity</li>
+            <li>Graphic design &amp; multimedia</li>
+            <li>Video production &amp; editing</li>
+            <li>Digital marketing content</li>
+            <li>Thought leadership &amp; PR</li>
+            <li>Creative campaign development</li>
+          </ul>
+        </article>
+
+        <article class="bpo-card" id="seo" data-reveal data-delay="1">
+          <p class="bpo-card__no">04 &mdash; Marketing</p>
+          <h3>Digital Marketing &amp; SEO</h3>
+          <p>We run the campaigns, search optimisation and social management that grow your visibility and drive the right traffic to your business.</p>
+          <ul class="bpo-list">
+            <li>Search engine optimisation</li>
+            <li>Social media marketing</li>
+            <li>Pay-per-click &amp; paid ads</li>
+            <li>Content marketing &amp; blogging</li>
+            <li>Email marketing &amp; automation</li>
+            <li>Landing-page optimisation</li>
+            <li>Influencer &amp; affiliate marketing</li>
+            <li>Analytics &amp; performance tracking</li>
+          </ul>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WORKING PROCESS ===== -->
+  <section class="process-plan" aria-labelledby="plan-h">
+    <div class="shell">
+      <div class="section-head center">
+        <p class="eyebrow eyebrow--light eyebrow--center" data-reveal>Working process</p>
+        <h2 id="plan-h" data-reveal data-delay="1">Our working plan</h2>
+        <p data-reveal data-delay="2">A clear, five-step path from first conversation to lasting results.</p>
+      </div>
+      <div class="plan">
+        <div class="plan__step" data-reveal><div class="plan__num">01</div><h3>Initial contact &amp; consultation</h3><p>We get to know your business, your goals and where you need support.</p></div>
+        <div class="plan__step" data-reveal data-delay="1"><div class="plan__num">02</div><h3>Needs assessment &amp; analysis</h3><p>We map your processes and pinpoint the highest-impact opportunities.</p></div>
+        <div class="plan__step" data-reveal data-delay="2"><div class="plan__num">03</div><h3>Customised strategy</h3><p>We design a plan tailored to your needs, priorities and budget.</p></div>
+        <div class="plan__step" data-reveal data-delay="3"><div class="plan__num">04</div><h3>Implementation &amp; execution</h3><p>We put the plan to work, integrating smoothly with your team.</p></div>
+        <div class="plan__step" data-reveal data-delay="4"><div class="plan__num">05</div><h3>Monitoring &amp; improvement</h3><p>We measure, refine and keep improving as your business grows.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section class="cta-band" aria-labelledby="cta-h">
+    <span class="cta-band__halo" aria-hidden="true"></span>
+    <div class="shell cta-band__inner">
+      <p class="eyebrow eyebrow--light eyebrow--center" data-reveal>Let's talk</p>
+      <h2 id="cta-h" data-reveal data-delay="1">Every business has unique challenges and opportunities.</h2>
+      <p data-reveal data-delay="2">We build customised solutions designed around your specific needs &mdash; turning challenges into momentum and unlocking sustainable growth.</p>
+      <div style="margin-top:2rem" data-reveal data-delay="2">
+        <a class="btn btn--accent btn--lg" href="index.html#contact">Contact us <span class="arrow" aria-hidden="true">&rarr;</span></a>
+      </div>
+    </div>
+  </section>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="shell">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <a class="logo logo--invert" href="index.html" aria-label="iMpact Inc home">
+            <span class="logo__mark" aria-hidden="true"><svg viewBox="0 0 120 120"><g fill="currentColor"><circle cx="26" cy="27" r="17.5"/><rect x="15.5" y="53" width="21" height="53" rx="10.5"/><rect x="80" y="13" width="22" height="93" rx="11"/><path d="M27 62 C 43 92, 65 84, 91 54" fill="none" stroke="currentColor" stroke-width="22" stroke-linecap="round"/></g></svg></span>
+            <span class="logo__type">iMpact<span class="inc">Inc</span></span>
+          </a>
+          <p>We equip people and organisations with the tools, insight and confidence to thrive. Based in Dar es Salaam, working everywhere.</p>
+          <p class="footer__tag">People · Purpose · Progress</p>
+        </div>
+        <div class="footer__col">
+          <h4>Services</h4>
+          <a href="index.html#services">People Development</a>
+          <a href="index.html#services">Leadership Growth</a>
+          <a href="index.html#services">Workplace Transformation</a>
+          <a href="bpo.html">Business Process Outsourcing</a>
+        </div>
+        <div class="footer__col">
+          <h4>Company</h4>
+          <a href="index.html#about">About</a>
+          <a href="index.html#process">Process</a>
+          <a href="index.html#insights">Insights</a>
+          <a href="privacy.html">Privacy Policy</a>
+        </div>
+        <div class="footer__col">
+          <h4>Get in touch</h4>
+          <a href="mailto:hello@impactinc.co">hello@impactinc.co</a>
+          <a href="tel:+255700000000">+255 700 000 000</a>
+          <a href="https://impactinc.co">impactinc.co</a>
+          <a href="index.html#contact">Dar es Salaam, Tanzania</a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>&copy; <span id="year">2026</span> iMpact Inc. All rights reserved. &nbsp;&middot;&nbsp; <a href="#" data-cookie-settings style="color:inherit;text-decoration:underline">Cookie settings</a></span>
+        <div class="footer__social">
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5A2.5 2.5 0 102.5 6 2.5 2.5 0 004.98 3.5zM3 8.5h4V21H3zM9 8.5h3.8v1.7h.05a4.2 4.2 0 013.75-2c4 0 4.75 2.6 4.75 6V21H20.6v-5.3c0-1.26 0-2.9-1.8-2.9s-2 1.4-2 2.8V21H13z"/></svg></a>
+          <a href="#" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h3l-7 8 8.5 12h-6.7l-4.8-6.9L4.7 22H2l7.5-8.6L1.5 2h6.8l4.4 6.4zm-1 18h1.8L7.1 4H5.2z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="iMpact Inc">
-  <rect width="120" height="120" rx="26" fill="#20283F"/>
-  <g transform="translate(12,12) scale(0.8)" fill="#3C9D9F">
-    <circle cx="26" cy="27" r="17.5"/>
-    <rect x="15.5" y="53" width="21" height="53" rx="10.5"/>
-    <rect x="80" y="13" width="22" height="93" rx="11"/>
-    <path d="M27 62 C 43 92, 65 84, 91 54" fill="none" stroke="#3C9D9F" stroke-width="22" stroke-linecap="round"/>
-  </g>
-</svg>
