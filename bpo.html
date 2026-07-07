@@ -44,6 +44,38 @@
     .plan__step:not(:last-child)::after{content:"";position:absolute;top:27px;left:54px;right:-.8rem;height:1.5px;z-index:1;
       background:repeating-linear-gradient(90deg,rgba(60,157,159,.5) 0 8px,transparent 8px 16px)}
 
+    /* ---- interactive showcase (Option 1) ---- */
+    .showcase{display:grid;grid-template-columns:minmax(260px,360px) 1fr;gap:clamp(1.5rem,3vw,2.6rem);align-items:start}
+    .showcase__list{display:flex;flex-direction:column}
+    .showcase__item{display:flex;align-items:center;gap:1rem;width:100%;text-align:left;cursor:pointer;
+      background:none;border:0;border-bottom:1px solid var(--line);padding:1.15rem 1.2rem;color:var(--ink);border-radius:0;
+      transition:background .3s var(--ease),color .3s var(--ease)}
+    .showcase__item .no{font-size:.8rem;font-weight:600;color:var(--slate);flex:none;width:1.6rem}
+    .showcase__item .name{font-size:1.12rem;font-weight:700;letter-spacing:-.01em;line-height:1.2}
+    .showcase__item:hover{color:var(--teal-deep)}
+    .showcase__item.is-active{background:var(--navy);color:var(--paper);border-color:transparent;border-radius:14px}
+    .showcase__item.is-active .no{color:var(--teal)}
+    .showcase__item.is-active .name{color:var(--paper)}
+    .showcase__panel{display:none}
+    .showcase__panel.is-active{display:block;animation:showFade .45s var(--ease)}
+    @keyframes showFade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+    .showcase__media{position:relative;overflow:hidden;border-radius:18px;min-height:230px;
+      display:flex;align-items:flex-end;padding:clamp(1.4rem,3vw,2rem)}
+    .showcase__media--a{background:linear-gradient(150deg,#20283F,#2A3450)}
+    .showcase__media--b{background:linear-gradient(150deg,#2E7A7C,#3C9D9F)}
+    .showcase__media--c{background:linear-gradient(150deg,#1A2133,#3C9D9F)}
+    .showcase__media--d{background:linear-gradient(150deg,#20283F,#2E7A7C)}
+    .showcase__img{position:absolute;inset:0;z-index:0;width:100%;height:100%;object-fit:cover}
+    .showcase__media::after{content:"";position:absolute;inset:0;z-index:1;
+      background:linear-gradient(to top,rgba(32,40,63,.85),rgba(32,40,63,.1))}
+    .showcase__mark{position:absolute;right:6%;top:50%;transform:translateY(-50%);width:118px;color:#3C9D9F;opacity:.18;z-index:1}
+    .showcase__media h3{position:relative;z-index:2;color:var(--paper);font-size:clamp(1.4rem,1rem+1.6vw,2rem);letter-spacing:-.01em}
+    .showcase__items{display:grid;grid-template-columns:1fr 1fr;gap:.6rem 1.4rem;margin-top:1.5rem}
+    .showcase__items li{display:flex;gap:.6rem;align-items:flex-start;font-size:.95rem;color:var(--ink-soft)}
+    .showcase__items li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--teal);margin-top:.55em;flex:none}
+    @media (max-width:900px){.showcase{grid-template-columns:1fr}}
+    @media (max-width:560px){.showcase__items{grid-template-columns:1fr}}
+
     @media (max-width:1000px){
       .bpo__grid{grid-template-columns:1fr}
       .plan{grid-template-columns:repeat(2,1fr);gap:2rem 1.4rem}
@@ -96,72 +128,94 @@
         <p class="eyebrow eyebrow--center" data-reveal>What we handle</p>
         <h2 id="bpo-h" data-reveal data-delay="1">Functions we run, so you don't have to</h2>
       </div>
-      <div class="bpo__grid">
 
-        <article class="bpo-card" id="hro" data-reveal>
-          <p class="bpo-card__no">01 &mdash; HRO</p>
-          <h3>Human Resource Outsourcing</h3>
-          <p>We manage the day-to-day of your people function &mdash; payroll, recruitment, compliance and employee relations &mdash; so your team is well supported and your admin burden drops.</p>
-          <ul class="bpo-list">
-            <li>Payroll &amp; compensation management</li>
-            <li>Recruitment &amp; talent acquisition</li>
-            <li>Employee relations &amp; compliance</li>
-            <li>HR policy development</li>
-            <li>Performance management</li>
-            <li>HR technology &amp; transformation</li>
-            <li>Benefits &amp; wellness programmes</li>
-            <li>HR compliance &amp; risk management</li>
-          </ul>
-        </article>
+      <div class="showcase" data-reveal>
+        <div class="showcase__list" role="tablist" aria-label="BPO services">
+          <button class="showcase__item is-active" role="tab" aria-selected="true" aria-controls="panel-hro" id="tab-hro">
+            <span class="no">01</span><span class="name">Human Resource Outsourcing</span>
+          </button>
+          <button class="showcase__item" role="tab" aria-selected="false" aria-controls="panel-back" id="tab-back">
+            <span class="no">02</span><span class="name">Back Office Operations</span>
+          </button>
+          <button class="showcase__item" role="tab" aria-selected="false" aria-controls="panel-content" id="tab-content">
+            <span class="no">03</span><span class="name">Content &amp; Creative Services</span>
+          </button>
+          <button class="showcase__item" role="tab" aria-selected="false" aria-controls="panel-seo" id="tab-seo">
+            <span class="no">04</span><span class="name">Digital Marketing &amp; SEO</span>
+          </button>
+        </div>
 
-        <article class="bpo-card" id="back-office" data-reveal data-delay="1">
-          <p class="bpo-card__no">02 &mdash; Back office</p>
-          <h3>Back Office Operations</h3>
-          <p>We take on the essential administrative work behind the scenes &mdash; data, documents and transactions &mdash; to streamline your operations and lift productivity.</p>
-          <ul class="bpo-list">
-            <li>Data entry &amp; database management</li>
-            <li>Document processing</li>
-            <li>Transaction &amp; financial admin</li>
-            <li>Customer &amp; admin support</li>
-            <li>Compliance &amp; regulatory docs</li>
-            <li>IT &amp; technical back-office</li>
-            <li>HR &amp; payroll back-office</li>
-            <li>Reporting &amp; analytics</li>
-          </ul>
-        </article>
+        <div class="showcase__panels">
+          <!-- To add a real photo to any panel, drop this just inside .showcase__media:
+               <img class="showcase__img" src="assets/bpo-hro.jpg" alt="" /> -->
+          <div class="showcase__panel is-active" id="panel-hro" role="tabpanel" aria-labelledby="tab-hro">
+            <div class="showcase__media showcase__media--a">
+              <span class="showcase__mark" aria-hidden="true"><svg viewBox="0 0 120 120"><g fill="currentColor"><circle cx="26" cy="27" r="17.5"/><rect x="15.5" y="53" width="21" height="53" rx="10.5"/><rect x="80" y="13" width="22" height="93" rx="11"/><path d="M27 62 C 43 92, 65 84, 91 54" fill="none" stroke="currentColor" stroke-width="22" stroke-linecap="round"/></g></svg></span>
+              <h3>Human Resource Outsourcing</h3>
+            </div>
+            <ul class="showcase__items">
+              <li>Payroll &amp; compensation management</li>
+              <li>Recruitment &amp; talent acquisition</li>
+              <li>Employee relations &amp; compliance</li>
+              <li>HR policy development</li>
+              <li>Performance management</li>
+              <li>HR technology &amp; transformation</li>
+              <li>Benefits &amp; wellness programmes</li>
+              <li>HR compliance &amp; risk management</li>
+            </ul>
+          </div>
 
-        <article class="bpo-card" id="content" data-reveal>
-          <p class="bpo-card__no">03 &mdash; Creative</p>
-          <h3>Content &amp; Creative Services</h3>
-          <p>From copy to campaigns, we build the content and creative that raise your profile &mdash; branding, marketing materials and social media that engage your audience.</p>
-          <ul class="bpo-list">
-            <li>Content creation &amp; copywriting</li>
-            <li>Social media content</li>
-            <li>Branding &amp; visual identity</li>
-            <li>Graphic design &amp; multimedia</li>
-            <li>Video production &amp; editing</li>
-            <li>Digital marketing content</li>
-            <li>Thought leadership &amp; PR</li>
-            <li>Creative campaign development</li>
-          </ul>
-        </article>
+          <div class="showcase__panel" id="panel-back" role="tabpanel" aria-labelledby="tab-back">
+            <div class="showcase__media showcase__media--b">
+              <span class="showcase__mark" aria-hidden="true"><svg viewBox="0 0 120 120"><g fill="currentColor"><circle cx="26" cy="27" r="17.5"/><rect x="15.5" y="53" width="21" height="53" rx="10.5"/><rect x="80" y="13" width="22" height="93" rx="11"/><path d="M27 62 C 43 92, 65 84, 91 54" fill="none" stroke="currentColor" stroke-width="22" stroke-linecap="round"/></g></svg></span>
+              <h3>Back Office Operations</h3>
+            </div>
+            <ul class="showcase__items">
+              <li>Data entry &amp; database management</li>
+              <li>Document processing</li>
+              <li>Transaction &amp; financial admin</li>
+              <li>Customer &amp; admin support</li>
+              <li>Compliance &amp; regulatory docs</li>
+              <li>IT &amp; technical back-office</li>
+              <li>HR &amp; payroll back-office</li>
+              <li>Reporting &amp; analytics</li>
+            </ul>
+          </div>
 
-        <article class="bpo-card" id="seo" data-reveal data-delay="1">
-          <p class="bpo-card__no">04 &mdash; Marketing</p>
-          <h3>Digital Marketing &amp; SEO</h3>
-          <p>We run the campaigns, search optimisation and social management that grow your visibility and drive the right traffic to your business.</p>
-          <ul class="bpo-list">
-            <li>Search engine optimisation</li>
-            <li>Social media marketing</li>
-            <li>Pay-per-click &amp; paid ads</li>
-            <li>Content marketing &amp; blogging</li>
-            <li>Email marketing &amp; automation</li>
-            <li>Landing-page optimisation</li>
-            <li>Influencer &amp; affiliate marketing</li>
-            <li>Analytics &amp; performance tracking</li>
-          </ul>
-        </article>
+          <div class="showcase__panel" id="panel-content" role="tabpanel" aria-labelledby="tab-content">
+            <div class="showcase__media showcase__media--c">
+              <span class="showcase__mark" aria-hidden="true"><svg viewBox="0 0 120 120"><g fill="currentColor"><circle cx="26" cy="27" r="17.5"/><rect x="15.5" y="53" width="21" height="53" rx="10.5"/><rect x="80" y="13" width="22" height="93" rx="11"/><path d="M27 62 C 43 92, 65 84, 91 54" fill="none" stroke="currentColor" stroke-width="22" stroke-linecap="round"/></g></svg></span>
+              <h3>Content &amp; Creative Services</h3>
+            </div>
+            <ul class="showcase__items">
+              <li>Content creation &amp; copywriting</li>
+              <li>Social media content</li>
+              <li>Branding &amp; visual identity</li>
+              <li>Graphic design &amp; multimedia</li>
+              <li>Video production &amp; editing</li>
+              <li>Digital marketing content</li>
+              <li>Thought leadership &amp; PR</li>
+              <li>Creative campaign development</li>
+            </ul>
+          </div>
 
+          <div class="showcase__panel" id="panel-seo" role="tabpanel" aria-labelledby="tab-seo">
+            <div class="showcase__media showcase__media--d">
+              <span class="showcase__mark" aria-hidden="true"><svg viewBox="0 0 120 120"><g fill="currentColor"><circle cx="26" cy="27" r="17.5"/><rect x="15.5" y="53" width="21" height="53" rx="10.5"/><rect x="80" y="13" width="22" height="93" rx="11"/><path d="M27 62 C 43 92, 65 84, 91 54" fill="none" stroke="currentColor" stroke-width="22" stroke-linecap="round"/></g></svg></span>
+              <h3>Digital Marketing &amp; SEO</h3>
+            </div>
+            <ul class="showcase__items">
+              <li>Search engine optimisation</li>
+              <li>Social media marketing</li>
+              <li>Pay-per-click &amp; paid ads</li>
+              <li>Content marketing &amp; blogging</li>
+              <li>Email marketing &amp; automation</li>
+              <li>Landing-page optimisation</li>
+              <li>Influencer &amp; affiliate marketing</li>
+              <li>Analytics &amp; performance tracking</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -244,5 +298,30 @@
   </footer>
 
   <script src="js/main.js"></script>
+  <script>
+    /* Interactive services showcase */
+    (function () {
+      var tabs = Array.prototype.slice.call(document.querySelectorAll(".showcase__item"));
+      var panels = document.querySelectorAll(".showcase__panel");
+      if (!tabs.length) return;
+      function activate(tab) {
+        tabs.forEach(function (t) {
+          var on = t === tab;
+          t.classList.toggle("is-active", on);
+          t.setAttribute("aria-selected", on ? "true" : "false");
+        });
+        var id = tab.getAttribute("aria-controls");
+        panels.forEach(function (p) { p.classList.toggle("is-active", p.id === id); });
+      }
+      tabs.forEach(function (tab, i) {
+        tab.addEventListener("click", function () { activate(tab); });
+        tab.addEventListener("keydown", function (e) {
+          var n = tabs.length;
+          if (e.key === "ArrowDown" || e.key === "ArrowRight") { e.preventDefault(); var a = tabs[(i + 1) % n]; activate(a); a.focus(); }
+          if (e.key === "ArrowUp" || e.key === "ArrowLeft") { e.preventDefault(); var b = tabs[(i - 1 + n) % n]; activate(b); b.focus(); }
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
