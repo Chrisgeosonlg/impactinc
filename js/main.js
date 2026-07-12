@@ -18,6 +18,17 @@
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
 
+  function hidePreloader() {
+    var preloader = document.querySelector('.preloader');
+    if (!preloader) return;
+    preloader.classList.add('preloader--done');
+    preloader.addEventListener('transitionend', function () {
+      if (preloader.parentNode) preloader.parentNode.removeChild(preloader);
+    }, { once: true });
+  }
+  window.addEventListener('load', hidePreloader);
+  window.setTimeout(hidePreloader, 1800);
+
   /* mobile menu */
   var toggle = document.getElementById("navToggle");
   var links = document.getElementById("navLinks");
