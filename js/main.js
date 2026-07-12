@@ -86,6 +86,82 @@
     });
   });
 
+  function initCarouselLoop(track, prevBtn, nextBtn, itemSelector) {
+    var items = Array.from(track.querySelectorAll(itemSelector));
+    if (items.length < 2) return;
+
+    var gap = parseFloat(getComputedStyle(track).gap) || 0;
+    var firstClone = items[0].cloneNode(true);
+    var lastClone = items[items.length - 1].cloneNode(true);
+    track.insertBefore(lastClone, track.firstChild);
+    track.appendChild(firstClone);
+
+    var index = 1;
+    var scrolling = false;
+
+    function itemWidth() {
+      return items[0].getBoundingClientRect().width + gap;
+    }
+
+    function jumpTo(idx) {
+      track.style.scrollBehavior = 'auto';
+      track.style.scrollSnapType = 'none';
+      track.scrollLeft = idx * itemWidth();
+      track.style.scrollSnapType = '';
+    }
+
+    function scrollTo(idx) {
+      scrolling = true;
+      track.style.scrollSnapType = 'none';
+      track.scrollTo({ left: idx * itemWidth(), behavior: 'smooth' });
+      window.setTimeout(function () {
+        normalizeIndex();
+        track.style.scrollSnapType = '';
+        scrolling = false;
+      }, 400);
+    }
+
+    function normalizeIndex() {
+      if (index === 0) {
+        index = items.length;
+        jumpTo(index);
+      } else if (index === items.length + 1) {
+        index = 1;
+        jumpTo(index);
+      }
+    }
+
+    prevBtn.addEventListener('click', function () {
+      if (scrolling) return;
+      index -= 1;
+      scrollTo(index);
+    });
+
+    nextBtn.addEventListener('click', function () {
+      if (scrolling) return;
+      index += 1;
+      scrollTo(index);
+    });
+
+    window.requestAnimationFrame(function () {
+      jumpTo(index);
+    });
+  }
+
+  var teamTrack = document.querySelector('.team__grid');
+  var teamPrev = document.getElementById('teamPrev');
+  var teamNext = document.getElementById('teamNext');
+  if (teamTrack && teamPrev && teamNext) {
+    initCarouselLoop(teamTrack, teamPrev, teamNext, '.member');
+  }
+
+  var clientTrack = document.querySelector('.clients__row');
+  var clientPrev = document.getElementById('clientsPrev');
+  var clientNext = document.getElementById('clientsNext');
+  if (clientTrack && clientPrev && clientNext) {
+    initCarouselLoop(clientTrack, clientPrev, clientNext, '.client-logo');
+  }
+
   /* contact form */
   var form = document.getElementById("contactForm");
   if (form) {

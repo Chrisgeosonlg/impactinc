@@ -32,7 +32,7 @@
       <a class="nav__link" href="#process">Process</a>
       <a class="nav__link" href="#insights">Insights</a>
       <a class="nav__link" href="#contact">Contact</a>
-      <a class="btn btn--accent" href="#contact">Start a conversation <span class="arrow" aria-hidden="true">→</span></a>
+      <a class="btn btn--accent" href="about.html">Start a conversation <span class="arrow" aria-hidden="true">→</span></a>
     </nav>
     <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
   </header>
@@ -49,16 +49,6 @@
         <div class="hero__actions" data-reveal data-delay="3">
           <a class="btn btn--accent btn--lg" href="#contact">Work with us <span class="arrow" aria-hidden="true">→</span></a>
           <a class="btn btn--light btn--lg" href="#services">Explore services</a>
-        </div>
-        <div class="hero__trust" data-reveal data-delay="4">
-          <span>Trusted by teams across sectors</span>
-          <div class="hero__clients">
-            <span class="client">Public <b>& Private</b></span>
-            <span class="client">Banking & <b> Finance</b></span>
-            <span class="client">Hospitality<b>& Education</b></span>
-            <span class="client">Technology<b> & Manufacturing</b></span>
-          
-          </div>
         </div>
       </div>
 
@@ -89,15 +79,8 @@
     </div>
   </section>
 
-  <!-- ===================== MARQUEE ===================== -->
-  <div class="marquee" aria-hidden="true">
-    <div class="marquee__track">
-      <span class="marquee__item">Leadership Growth</span><span class="marquee__item">Coaching</span><span class="marquee__item">Culture</span><span class="marquee__item">Change Enablement</span><span class="marquee__item">Wellbeing</span><span class="marquee__item">Capability</span>
-      <span class="marquee__item">Leadership Growth</span><span class="marquee__item">Coaching</span><span class="marquee__item">Culture</span><span class="marquee__item">Change Enablement</span><span class="marquee__item">Wellbeing</span><span class="marquee__item">Capability</span>
-    </div>
-  </div>
-
   <!-- ===================== ABOUT ===================== -->
+  
   <section class="about" id="about" aria-labelledby="about-h">
     <div class="shell about__grid">
       <div class="about__visual about__visual--photo" data-reveal>
@@ -116,7 +99,9 @@
           <li data-reveal data-delay="2"><span class="tick">✓</span><span>We lead with empathy, clarity and respect in everything we make and say.</span></li>
           <li data-reveal data-delay="3"><span class="tick">✓</span><span>We favour durable solutions over quick wins, and substance over noise.</span></li>
         </ul>
-        <a class="btn btn--accent" href="#contact" data-reveal data-delay="3">Start a conversation <span class="arrow" aria-hidden="true">→</span></a>
+        <div class="about__actions">
+          <a class="btn btn--accent" href="about.html" data-reveal data-delay="3">Read more <span class="arrow" aria-hidden="true">→</span></a>
+        </div>
       </div>
     </div>
   </section>
@@ -234,23 +219,55 @@
         <p class="eyebrow eyebrow--center" data-reveal>Our team</p>
         <h2 id="team-h" data-reveal data-delay="1">The people behind the progress</h2>
       </div>
-      <div class="team__grid">
-        <div class="member" data-reveal>
-          <img class="member__avatar member__avatar--flip" src="assets/team-ila.jpg" alt="Ila Nashon" />
-          <h3>Ila Nashon</h3><span>Managing Director</span>
+      <div class="team__slider">
+        <button type="button" class="slider__nav slider__nav--prev" id="teamPrev" aria-label="Scroll team left">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <div class="team__grid" role="list">
+          <div class="member" data-reveal data-delay="1" role="listitem">
+            <img class="member__avatar" src="assets/team-Ila.jpeg" alt="Ila Nashon" />
+            <h3>Ila Nashon</h3><span>Managing Director</span>
+          </div>
+          <div class="member" data-reveal data-delay="1" role="listitem">
+            <img class="member__avatar" src="assets/team-Victor.jpg" alt="Victor Mwenda" />
+            <h3>Victor Mwenda</h3><span>Managing Partner</span>
+          </div>
+          <div class="member" data-reveal data-delay="2" role="listitem">
+            <img class="member__avatar" src="assets/team-Cecy.jpeg" alt="Cecy Mahwaya" />
+            <h3>Cecy Mahwaya</h3><span>Head of Finance</span>
+          </div>
+          <div class="member" data-reveal data-delay="3" role="listitem">
+            <img class="member__avatar" src="assets/team-Faraja.jpg" alt="Faraja Venance" />
+            <h3>Faraja Venance</h3><span>Lead Facilitator</span>
+          </div>
+          <div class="member" data-reveal data-delay="4" role="listitem">
+            <img class="member__avatar" src="assets/team-Suzan.jpeg" alt="Suzan Raphael" />
+            <h3>Suzan Raphael</h3><span>Head of Sales and Marketing</span>
+          </div>
+          <div class="member" data-reveal data-delay="5" role="listitem">
+            <img class="member__avatar" src="assets/team-Charles.jpeg" alt="Charles Lusiga" />
+            <h3>Charles Lusiga</h3><span>Operational Manager</span>
+          </div>
+          <div class="member" data-reveal data-delay="6" role="listitem">
+            <img class="member__avatar" src="assets/team-Mariam.jpeg" alt="Mariam Rajab" />
+            <h3>Mariam Rajab</h3><span>Senior Associate</span>
+          </div>
+          <div class="member" data-reveal data-delay="7" role="listitem">
+            <img class="member__avatar" src="assets/team-Jonathan.jpeg" alt="Jonathan Ndali" />
+            <h3>Jonathan Ndali</h3><span>Lead Facilitator</span>
+          </div>
+          <div class="member" data-reveal data-delay="8" role="listitem">
+            <img class="member__avatar" src="assets/team-Sharon.jpg" alt="Sharon Bidyanguze" />
+            <h3>Sharon Bidyanguze</h3><span>Communications &amp; Brand Officer</span>
+          </div>
+          <div class="member" data-reveal data-delay="9" role="listitem">
+            <img class="member__avatar" src="assets/team-Michelle.jpeg" alt="Michelle Mushi" />
+            <h3>Michelle Mushi</h3><span>Head of Programs &amp; Client Delivery</span>
+          </div>
         </div>
-        <div class="member" data-reveal data-delay="1">
-          <img class="member__avatar" src="assets/team-Victor.jpg" alt="Victor Mwenda" />
-          <h3>Victor Mwenda</h3><span>Associate Director</span>
-        </div>
-        <div class="member" data-reveal data-delay="2">
-          <img class="member__avatar" src="assets/team-Cecy.jpg" alt="Cecy Mahwaya" />
-          <h3>Cecy Mahwaya</h3><span>Head of Finance</span>
-        </div>
-        <div class="member" data-reveal data-delay="3">
-          <img class="member__avatar" src="assets/team-Faraja.jpg" alt="Faraja Mrefu" />
-          <h3>Faraja Mrefu</h3><span>Lead Facilitator</span>
-        </div>
+        <button type="button" class="slider__nav slider__nav--next" id="teamNext" aria-label="Scroll team right">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+        </button>
       </div>
     </div>
   </section>
@@ -280,18 +297,35 @@
   </section>
 
   <!-- ===================== CLIENTS ===================== -->
-  <!-- <section class="clients" aria-label="Organisations we work with">
+  <section class="clients" aria-labelledby="clients-h">
     <div class="shell">
-      <p class="clients__title" data-reveal>Trusted by teams across sectors</p>
-      <div class="clients__row" data-reveal data-delay="1">
-        <img class="client-logo" src="assets/client-1.jpg" alt="Azam" />
-        
-        <img class="client-logo" src="assets/client-3.jpg" alt="Nokia" />
-        <img class="client-logo" src="assets/client-4.jpg" alt="Yara" />
-        <img class="client-logo" src="assets/client-5.jpg" alt="Young Life" />
+      <div class="section-head center">
+        <p class="eyebrow eyebrow--center" data-reveal>Trusted by teams across sectors</p>
+        <h2 id="clients-h" data-reveal data-delay="1">Clients we support</h2>
+      </div>
+      <div class="clients__slider" data-reveal data-delay="1">
+        <button type="button" class="slider__nav slider__nav--prev" id="clientsPrev" aria-label="Scroll clients left">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <div class="clients__row" role="list">
+          <img class="client-logo" src="assets/client-1.jpg" alt="Azam" role="listitem" />
+          <img class="client-logo" src="assets/client-2.png" alt="Client logo 2" role="listitem" />
+          <img class="client-logo" src="assets/client-3.jpg" alt="Nokia" role="listitem" />
+          <img class="client-logo" src="assets/client-4.jpg" alt="Yara" role="listitem" />
+          <img class="client-logo" src="assets/client-5.jpg" alt="Young Life" role="listitem" />
+          <img class="client-logo" src="assets/client-6.jpg" alt="Client logo 6" role="listitem" />
+          <img class="client-logo" src="assets/client-7.jpg" alt="Client logo 7" role="listitem" />
+          <img class="client-logo" src="assets/client-8.jpg" alt="Client logo 8" role="listitem" />
+          <img class="client-logo" src="assets/client-9.jpg" alt="Client logo 9" role="listitem" />
+          <img class="client-logo" src="assets/client-10.jpg" alt="Client logo 10" role="listitem" />
+          <img class="client-logo" src="assets/client-11.jpg" alt="Client logo 11" role="listitem" />
+        </div>
+        <button type="button" class="slider__nav slider__nav--next" id="clientsNext" aria-label="Scroll clients right">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+        </button>
       </div>
     </div>
-  </section> -->
+  </section>
 
   <!-- ===================== CONTACT ===================== -->
   <section class="contact-section" id="contact" aria-labelledby="contact-h">
@@ -307,11 +341,11 @@
           </div>
           <div class="info-row">
             <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></span>
-            <div><div class="k">Phone</div><a class="v" href="tel:+255700000000">+255 700 000 000</a></div>
+            <div><div class="k">Phone</div><a class="v" href="tel:+255764765365">+255 764 765 365</a></div>
           </div>
           <div class="info-row">
             <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11"/><circle cx="12" cy="10" r="2.5"/></svg></span>
-            <div><div class="k">Offie</div><span class="v">Mikocheni Dar es Salaam, Tanzania</span></div>
+            <div><div class="k">Offie</div><span class="v">Mikocheni A, Plot 347, Senga Rd</span></div>
           </div>
           <div class="info-row">
             <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
