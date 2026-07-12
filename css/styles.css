@@ -366,12 +366,30 @@ header.nav.nav--scrolled .logo__mark{color:var(--teal)}
   .stats__grid>div:nth-child(even){border-left:1px solid rgba(255,255,255,.2)}
   .audience__grid{grid-template-columns:1fr}
   .steps{grid-template-columns:1fr}
+  .clients__row{gap:1rem;}
+  .client-logo{flex:0 0 calc((100% - 1rem) / 2);max-width:calc((100% - 1rem) / 2);}
+  .team__slider{padding-inline:1.2rem}
+  .team__slider .slider__nav--prev{left:-.5rem}
+  .team__slider .slider__nav--next{right:-.5rem}
+  .clients__slider{padding-inline:1rem}
+  .clients__slider .slider__nav--prev{left:-.9rem}
+  .clients__slider .slider__nav--next{right:-.9rem}
 }
 @media (max-width:560px){
   .services__grid{grid-template-columns:1fr}
   .footer__top{grid-template-columns:1fr}
   .footer__bottom{flex-direction:column;text-align:center}
   .hero{padding-top:7.5rem}
+  .team__slider{padding-inline:1rem}
+  .team__grid{gap:1rem;}
+  .member{flex:0 0 100%;max-width:100%;}
+  .team__slider .slider__nav--prev{left:-.7rem}
+  .team__slider .slider__nav--next{right:-.7rem}
+  .clients__slider{padding-inline:.9rem}
+  .clients__slider .slider__nav--prev{left:-1rem}
+  .clients__slider .slider__nav--next{right:-1rem}
+  .clients__row{gap:.75rem;}
+  .client-logo{flex:0 0 calc((100% - .75rem) / 2);max-width:calc((100% - .75rem) / 2);}
 }
 
 /* ============================================================ CONTACT FORM */
