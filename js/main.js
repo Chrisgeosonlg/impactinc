@@ -159,11 +159,90 @@
     });
   }
 
+  function initTeamLoop(track, prevBtn, nextBtn) {
+    var items = Array.from(track.querySelectorAll('.member'));
+    if (items.length < 2) return;
+
+    function cloneItem(item) {
+      var clone = item.cloneNode(true);
+      clone.setAttribute('aria-hidden', 'true');
+      clone.setAttribute('inert', '');
+      clone.removeAttribute('data-reveal');
+      clone.removeAttribute('data-delay');
+      clone.classList.add('is-in');
+      return clone;
+    }
+
+    var before = document.createDocumentFragment();
+    items.forEach(function (item) { before.appendChild(cloneItem(item)); });
+    track.insertBefore(before, items[0]);
+    items.forEach(function (item) { track.appendChild(cloneItem(item)); });
+
+    var step = 0;
+    var start = 0;
+    var span = 0;
+    var settleTimer;
+    var touching = false;
+
+    function jumpTo(left) {
+      track.style.scrollSnapType = 'none';
+      track.scrollTo({ left: left, behavior: 'instant' });
+      // Flush the jump before restoring snap points at the equivalent cards.
+      track.getBoundingClientRect();
+      track.style.scrollSnapType = '';
+    }
+
+    function normalize() {
+      window.clearTimeout(settleTimer);
+      if (touching || !span) return;
+      var left = track.scrollLeft;
+      if (left < start - 1 || left >= start + span - 1) {
+        jumpTo(start + ((left - start) % span + span) % span);
+      }
+    }
+
+    function measure() {
+      var position = step ? (track.scrollLeft - start) / step : 0;
+      step = items[0].getBoundingClientRect().width + (parseFloat(getComputedStyle(track).columnGap) || 0);
+      span = step * items.length;
+      start = span;
+      jumpTo(start + ((position % items.length + items.length) % items.length) * step);
+    }
+
+    function move(direction) {
+      normalize();
+      var index = Math.round((track.scrollLeft - start) / step);
+      track.scrollTo({ left: start + (index + direction) * step, behavior: reduce ? 'instant' : 'smooth' });
+    }
+
+    prevBtn.addEventListener('click', function () { move(-1); });
+    nextBtn.addEventListener('click', function () { move(1); });
+    track.addEventListener('scroll', function () {
+      window.clearTimeout(settleTimer);
+      settleTimer = window.setTimeout(normalize, 150);
+    }, { passive: true });
+    track.addEventListener('scrollend', normalize);
+    track.addEventListener('pointerdown', function () { touching = true; }, { passive: true });
+    function release() {
+      if (!touching) return;
+      touching = false;
+      settleTimer = window.setTimeout(normalize, 150);
+    }
+    window.addEventListener('pointerup', release, { passive: true });
+    window.addEventListener('pointercancel', release, { passive: true });
+    if ('ResizeObserver' in window) {
+      new ResizeObserver(measure).observe(track);
+    } else {
+      window.addEventListener('resize', measure);
+    }
+    measure();
+  }
+
   var teamTrack = document.querySelector('.team__grid');
   var teamPrev = document.getElementById('teamPrev');
   var teamNext = document.getElementById('teamNext');
   if (teamTrack && teamPrev && teamNext) {
-    initCarouselLoop(teamTrack, teamPrev, teamNext, '.member');
+    initTeamLoop(teamTrack, teamPrev, teamNext);
   }
 
   var clientTrack = document.querySelector('.clients__row');
