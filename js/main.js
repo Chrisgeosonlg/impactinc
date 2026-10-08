@@ -317,11 +317,11 @@
         .then(function (res) {
           btn.innerHTML = original; btn.removeAttribute("aria-busy");
           if (res.ok) { form.reset(); showStatus("ok", "Thanks for reaching out — we'll reply within one working day."); }
-          else { showStatus("err", (res.d && res.d.message) || "Something went wrong. Please email info@impact.co.tz."); }
+          else { showStatus("err", (res.d && res.d.message) || "Something went wrong. Please email info@impactinc.co.tz."); }
         })
         .catch(function () {
           btn.innerHTML = original; btn.removeAttribute("aria-busy");
-          showStatus("err", "Network error — please email info@impact.co.tz directly.");
+          showStatus("err", "Network error — please email info@impactinc.co.tz directly.");
         });
     }
   }
