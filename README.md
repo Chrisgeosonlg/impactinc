@@ -25,7 +25,7 @@ Plain HTML, CSS and vanilla JavaScript — no framework, no build step.
 12. **Footer** – brand, link columns, social
 
 > **Placeholders to replace:** team names/roles, client names in the hero strip,
-> insight article titles/dates, and contact details (`hello@impactinc.co`,
+> insight article titles/dates, and contact details (`info@impact.co.tz`,
 > `+255 700 000 000`, Dar es Salaam). Drop real photography into the team and
 > insight cards whenever you have it — the markup is ready for `<img>`.
 
