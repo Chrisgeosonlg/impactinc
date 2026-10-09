@@ -165,8 +165,9 @@
 
     function cloneItem(item) {
       var clone = item.cloneNode(true);
+      // aria-hidden only: `inert` would also block :hover on the clones,
+      // which are often the cards in view. Cards hold no focusable content.
       clone.setAttribute('aria-hidden', 'true');
-      clone.setAttribute('inert', '');
       clone.removeAttribute('data-reveal');
       clone.removeAttribute('data-delay');
       clone.classList.add('is-in');
